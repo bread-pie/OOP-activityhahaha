@@ -4,37 +4,29 @@ class Program
 {
     static void Main()
     {
-        List<string> originalWords = new List<string>();
-        List<string> modifiedWords = new List<string>();
+        List<string> attendees = new List<string>();
 
-        Console.WriteLine("Enter words (type 'done' to finish):");
+        Console.WriteLine("Enter student names (type 'end' to finish):");
 
         while (true)
         {
-            string word = Console.ReadLine();
+            string name = Console.ReadLine();
 
-            if (word.ToLower() == "done")
+            if (name.ToLower() == "end")
                 break;
 
-            originalWords.Add(word);
-
-            // Replace vowels with '*'
-            string newWord = "";
-            foreach (char c in word)
-            {
-                if ("aeiouAEIOU".Contains(c))
-                    newWord += '*';
-                else
-                    newWord += c;
-            }
-
-            modifiedWords.Add(newWord);
+            // Add only if not already in list
+            if (!attendees.Contains(name))
+                attendees.Add(name);
         }
 
-        Console.WriteLine("\nOriginal and Modified Words:");
-        for (int i = 0; i < originalWords.Count; i++)
+        attendees.Sort(); // Alphabetical order
+
+        Console.WriteLine("\nTotal unique attendees: " + attendees.Count);
+        Console.WriteLine("List of attendees:");
+        foreach (string student in attendees)
         {
-            Console.WriteLine(originalWords[i] + " -> " + modifiedWords[i]);
+            Console.WriteLine(student);
         }
     }
 }
