@@ -1,0 +1,35 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        List<string> words = new List<string>();
+
+        Console.WriteLine("Enter 5 sentences:");
+
+        for (int i = 0; i < 5; i++)
+        {
+            string[] sentenceWords = Console.ReadLine().Split(' ');
+
+            foreach (string word in sentenceWords)
+            {
+                string lowerWord = word.ToLower();
+
+                // Add only if not already in list
+                if (!words.Contains(lowerWord) && lowerWord != "")
+                {
+                    words.Add(lowerWord);
+                }
+            }
+        }
+
+        words.Sort(); // Sort alphabetically
+
+        Console.WriteLine("\nUnique words (" + words.Count + "):");
+        foreach (string w in words)
+        {
+            Console.WriteLine(w);
+        }
+    }
+}
