@@ -1,0 +1,40 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        List<decimal> prices = new List<decimal>();
+        decimal input;
+
+        Console.WriteLine("Enter item prices (type -1 to stop):");
+
+        while (true)
+        {
+            input = Convert.ToDecimal(Console.ReadLine());
+
+            if (input == -1) // Stop condition
+                break;
+
+            if (input < 0) // Skip invalid negative prices
+            {
+                Console.WriteLine("Invalid price. Try again.");
+                continue;
+            }
+
+            prices.Add(input); // Add valid price
+        }
+
+        if (prices.Count > 0)
+        {
+            Console.WriteLine("\nTotal items: " + prices.Count);
+            Console.WriteLine("Average price: " + prices.Average());
+            Console.WriteLine("Highest price: " + prices.Max());
+            Console.WriteLine("Lowest price: " + prices.Min());
+        }
+        else
+        {
+            Console.WriteLine("No prices entered.");
+        }
+    }
+}
