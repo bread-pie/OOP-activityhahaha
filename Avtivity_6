@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq; // Needed for Distinct() and Sort()
+
+class Program
+{
+    static void Main()
+    {
+        List<string> cities = new List<string>();
+        string input;
+
+        Console.WriteLine("Enter city names (type 'exit' to finish):");
+
+        while (true)
+        {
+            input = Console.ReadLine();
+
+            if (input.ToLower() == "exit")
+                break;
+
+            cities.Add(input);
+        }
+
+        // Remove duplicates and sort alphabetically
+        List<string> uniqueCities = cities.Distinct().ToList();
+        uniqueCities.Sort();
+
+        Console.WriteLine("\nCities in alphabetical order:");
+        foreach (string city in uniqueCities)
+        {
+            Console.WriteLine(city);
+        }
+    }
+}
