@@ -1,0 +1,40 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        List<string> originalWords = new List<string>();
+        List<string> modifiedWords = new List<string>();
+
+        Console.WriteLine("Enter words (type 'done' to finish):");
+
+        while (true)
+        {
+            string word = Console.ReadLine();
+
+            if (word.ToLower() == "done")
+                break;
+
+            originalWords.Add(word);
+
+            // Replace vowels with '*'
+            string newWord = "";
+            foreach (char c in word)
+            {
+                if ("aeiouAEIOU".Contains(c))
+                    newWord += '*';
+                else
+                    newWord += c;
+            }
+
+            modifiedWords.Add(newWord);
+        }
+
+        Console.WriteLine("\nOriginal and Modified Words:");
+        for (int i = 0; i < originalWords.Count; i++)
+        {
+            Console.WriteLine(originalWords[i] + " -> " + modifiedWords[i]);
+        }
+    }
+}
