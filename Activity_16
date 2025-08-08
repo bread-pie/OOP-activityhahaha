@@ -1,0 +1,61 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        List<string> cart = new List<string>();
+
+        while (true)
+        {
+            Console.WriteLine("\nShopping Cart Menu:");
+            Console.WriteLine("1. Add item");
+            Console.WriteLine("2. Remove item");
+            Console.WriteLine("3. View cart");
+            Console.WriteLine("4. Clear cart");
+            Console.WriteLine("5. Exit");
+            Console.Write("Choose an option: ");
+
+            int choice = int.Parse(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1: // Add item
+                    Console.Write("Enter item name: ");
+                    cart.Add(Console.ReadLine());
+                    Console.WriteLine("Item added.");
+                    break;
+
+                case 2: // Remove item
+                    Console.Write("Enter item name to remove: ");
+                    string removeItem = Console.ReadLine();
+                    if (cart.Remove(removeItem))
+                        Console.WriteLine("Item removed.");
+                    else
+                        Console.WriteLine("Item not found.");
+                    break;
+
+                case 3: // View cart
+                    Console.WriteLine("\nCart Contents:");
+                    if (cart.Count == 0)
+                        Console.WriteLine("Cart is empty.");
+                    else
+                        foreach (string item in cart)
+                            Console.WriteLine(item);
+                    break;
+
+                case 4: // Clear cart
+                    cart.Clear();
+                    Console.WriteLine("Cart cleared.");
+                    break;
+
+                case 5: // Exit
+                    return;
+
+                default:
+                    Console.WriteLine("Invalid option.");
+                    break;
+            }
+        }
+    }
+}
