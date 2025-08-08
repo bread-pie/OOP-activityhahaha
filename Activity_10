@@ -1,0 +1,36 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        List<int> numbers = new List<int>();
+        List<int> evenList = new List<int>();
+        List<int> oddList = new List<int>();
+
+        Console.WriteLine("Enter 12 numbers:");
+
+        for (int i = 0; i < 12; i++)
+        {
+            int num = Convert.ToInt32(Console.ReadLine());
+            numbers.Add(num);
+
+            if (num % 2 == 0)
+                evenList.Add(num);
+            else
+                oddList.Add(num);
+        }
+
+        Console.WriteLine("\nEven numbers:");
+        foreach (int num in evenList)
+        {
+            Console.WriteLine(num);
+        }
+
+        Console.WriteLine("\nOdd numbers:");
+        foreach (int num in oddList)
+        {
+            Console.WriteLine(num);
+        }
+    }
+}
