@@ -1,0 +1,40 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        List<string> birthYears = new List<string>();
+        int currentYear = DateTime.Now.Year; // Get current year
+
+        Console.WriteLine("Enter 5 birth years:");
+
+        for (int i = 0; i < 5; i++)
+        {
+            string input = Console.ReadLine();
+
+            // Validate numeric input
+            if (int.TryParse(input, out int year))
+            {
+                birthYears.Add(input); // Store as string
+                int age = currentYear - year;
+
+                // Classification
+                string classification;
+                if (age < 18)
+                    classification = "Minor";
+                else if (age < 60)
+                    classification = "Adult";
+                else
+                    classification = "Senior";
+
+                Console.WriteLine("Age: " + age + " - " + classification);
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Try again.");
+                i--; // Repeat the loop for invalid input
+            }
+        }
+    }
+}
