@@ -1,0 +1,26 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        List<int> numbers = new List<int>();
+        List<int> filteredNumbers = new List<int>();
+
+        Console.WriteLine("Enter 10 numbers:");
+
+        for (int i = 0; i < 10; i++)
+        {
+            int num = Convert.ToInt32(Console.ReadLine());
+            numbers.Add(num);
+
+            if (num > 50)
+            {
+                filteredNumbers.Add(num);
+            }
+        }
+
+        Console.WriteLine("\nOriginal count: " + numbers.Count);
+        Console.WriteLine("Filtered count (>50): " + filteredNumbers.Count);
+    }
+}
