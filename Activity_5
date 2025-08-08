@@ -1,0 +1,56 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        List<int> grades = new List<int>();
+
+        // Counters for each letter grade
+        int countA = 0, countB = 0, countC = 0, countD = 0, countF = 0;
+
+        Console.WriteLine("Enter 7 student grades (0-100):");
+
+        for (int i = 0; i < 7; i++)
+        {
+            int grade = Convert.ToInt32(Console.ReadLine());
+
+            // Validate grade
+            if (grade < 0 || grade > 100)
+            {
+                Console.WriteLine("Invalid grade. Try again.");
+                i--; // Repeat this loop
+                continue;
+            }
+
+            grades.Add(grade);
+
+            // Classify grade using switch
+            switch (grade)
+            {
+                case int g when (g >= 90 && g <= 100):
+                    countA++;
+                    break;
+                case int g when (g >= 80 && g <= 89):
+                    countB++;
+                    break;
+                case int g when (g >= 70 && g <= 79):
+                    countC++;
+                    break;
+                case int g when (g >= 60 && g <= 69):
+                    countD++;
+                    break;
+                default:
+                    countF++;
+                    break;
+            }
+        }
+
+        Console.WriteLine("\nGrade counts:");
+        Console.WriteLine("A: " + countA);
+        Console.WriteLine("B: " + countB);
+        Console.WriteLine("C: " + countC);
+        Console.WriteLine("D: " + countD);
+        Console.WriteLine("F: " + countF);
+    }
+}
